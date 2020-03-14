@@ -265,7 +265,7 @@ def filter_yaml(yaml: Union[str, List[str], Blob], labels: dict=None, name: str=
     foobar_yaml, rest = filter_yaml('all.yaml', labels={'app': 'foobar'}
     k8s_yaml(foobar_yaml)
 
-    # extract YAMLs of kind "deployment" with metadata.name "baz"
+    # extract YAMLs of kind "deployment" with metadata.name regex-matching "baz" (also matches "foo-baz", "bazzoo", etc)
     baz_yaml, rest = filter_yaml(rest, name='baz', kind='deployment')
     k8s_yaml(baz_yaml)
 
